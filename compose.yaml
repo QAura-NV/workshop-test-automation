@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: ghcr.io/qaura-nv/workshop-test-automation-backend:latest
+    restart: unless-stopped
+    build:
+      context: backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8080:8080"
+    environment:
+      - GOMEMLIMIT=128MiB
+    volumes:
+      - ./backend/pb_data:/pb/pb_data
+
+  frontend:
+    image: ghcr.io/qaura-nv/workshop-test-automation-frontend:latest
+    restart: unless-stopped
+    build:
+      context: frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - PUBLIC_POCKETBASE_URL=http://localhost:8080
