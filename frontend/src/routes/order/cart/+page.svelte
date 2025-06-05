@@ -69,8 +69,13 @@
 			{/if}
 		{/each}
 		<div class="flex justify-end">
-			<button class="cursor-pointer bg-blue-400 px-4 py-2" onclick={() => order()}>Order now</button
-			>
+			{#if authStore.isValid}
+				<button class="cursor-pointer bg-blue-400 px-4 py-2" onclick={() => order()}
+					>Order now</button
+				>
+			{:else}
+				<p class="text-red-400">You need to be logged in to order pets.</p>
+			{/if}
 		</div>
 	</div>
 {:catch error}
