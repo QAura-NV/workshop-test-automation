@@ -42,11 +42,14 @@ migrate(
     }
   },
   (app) => {
+    function constructFilterString(names) {
+      return names.map((name) => `name = "${name}"`).join(" || ");
+    }
     // Remove cats
     let pets = app.findCollectionByNameOrId("pets");
     let catRecords = app.findRecordsByFilter(
       pets,
-      CAT_NAMES.map((name) => `name = "${name}"`).join("||")
+      constructFilterString(CAT_NAMES)
     );
     for (let record of catRecords) {
       app.delete(record);
