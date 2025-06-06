@@ -20,8 +20,9 @@ migrate(
       categoryIds[name] = record.id;
     }
 
-    // Add Dogs
     let pets = app.findCollectionByNameOrId("pets");
+
+    // Add Dogs
     for (let dogName of DOG_NAMES) {
       let record = new Record(pets, {
         name: dogName,

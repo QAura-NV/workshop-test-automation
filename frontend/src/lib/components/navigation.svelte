@@ -21,7 +21,7 @@
 			<div class="bg-blue-400 px-4 py-2"><a href="/auth/logout">Logout</a></div>
 		{/if}
 		{#if authStore.isValid}
-			<div class="bg-blue-300 px-4 py-2"><a href="/orders">My Orders</a></div>
+			<div class="bg-blue-400 px-4 py-2"><a href="/orders">My Orders</a></div>
 		{/if}
 		<div class="bg-blue-400 px-4 py-2">
 			<a href="/order/cart">Cart ({cartStore.cart.length})</a>

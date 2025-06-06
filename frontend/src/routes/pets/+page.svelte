@@ -68,6 +68,7 @@
 			</div>
 		{/each}
 	</div>
+	<p class="text-right">Showing a total of {pets.length} pets</p>
 {:catch error}
 	<p class="bg-red-400">Error loading pets: {error}</p>
 {/await}
